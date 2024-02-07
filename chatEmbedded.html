@@ -1,4 +1,4 @@
-<html>
+trra<html>
 	<input type="button" value="Conversar" onclick="startChat();"/>
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -67,7 +67,11 @@
 	function startChat(){
 		console.log('entramos al inicio');
 		embedded_svc.liveAgentAPI.startChat({
-			
+			extraPrechatFormDetails: [{"label": "Account Id",
+						   "value":"",
+						   "displayToAgent":true,
+						  "transcriptFields":["idAccount"]
+						  }]
 		});
 	}
 </script>
