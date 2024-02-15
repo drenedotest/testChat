@@ -54,7 +54,7 @@ trra<html>
 	window.addEventListener("message", receiveMessage, false);
 	function receiveMessage(event) {
 	    var payload = event.data;
-	
+		console.log('payload ' + JSON.stringify(payload));
 	    if(payload && payload.type === "chasitor.sendMessage") {
 	        embedded_svc.postMessage("chasitor.sendMessage", payload.message);
 	    }
