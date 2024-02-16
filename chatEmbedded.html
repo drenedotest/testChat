@@ -54,19 +54,16 @@ trra<html>
 	window.addEventListener("message", receiveMessage, false);
 	function receiveMessage(event) {
 	    var payload = event.data;
+		console.log('value of payload ' + payload.message);
+		console.log('value of message cerrar ' +  payload.message == 'Cerrar chat');
 	    if(payload && payload.type === "chasitor.sendMessage") {
 	        embedded_svc.postMessage("chasitor.sendMessage", payload.message);
 	    }
 	};
 
-	window.addEventListener("finishChat", functionFinishChat, false);
-	function functionFinishChat(event) {
-		console.log('finishChat');
-		embedded_svc.liveAgentAPI.clearSession();
-
-		};
+	
 	if (!window.embedded_svc) {
-		console.log('inicializamos2');
+		console.log('inicializamos3');
 		var s = document.createElement('script');
 		s.setAttribute('src', 'https://conecta5--dev.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
