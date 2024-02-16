@@ -54,7 +54,7 @@ trra<html>
 	window.addEventListener("message", receiveMessage, false);
 	function receiveMessage(event) {
 	    var payload = event.data;
-		console.log('value of payload ' + payload.message);
+		console.log('value of payload modificado ' + payload.message);
 		console.log('value of message cerrar ' +  payload.message.value == 'Cerrar chat');
 		console.log('value of message cerrar comillas dobles' +  payload.message.value == "Cerrar chat");
 		if(payload.message.value != undefined){
