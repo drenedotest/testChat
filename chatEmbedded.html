@@ -34,32 +34,7 @@ trra<html>
 
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
-		embedded_svc.addEventHandler("onChatEndedByChasitor", function (data){
-            setTimeout(function () {
-                console.log("onChatEndedChasitor event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
-                var searchBtn = document.getElementById("closeBtn");
-                if(!searchBtn){
-                    var btn = document.createElement("BUTTON");
-                    btn.id = "closeBtn";
-                    btn.innerHTML = "Close Chat";
-                    btn.className = "endChatButton postChatButton uiButton--default uiButton embeddedServiceSidebarButton";
-                    btn.addEventListener("click", function (e){
-                        e.preventDefault();
-                        console.log('Clear Session Clicked');
-                        embedded_svc.liveAgentAPI.clearSession();
-                        var chatHeader = document.getElementsByTagName('embeddedservice-chat-header');
-                        if(chatHeader && chatHeader.length > 0){
-                            var close = chatHeader[0].getElementsByClassName("closeButton");
-                            if(close && close.length > 0){
-                                close[0].click();
-                                }
-                            }
-                        });
-                var myDiv = document.getElementsByClassName('endChatContainer');
-                myDiv[0].appendChild(btn);
-                }
-                }, 1000);
-            });
+		
 		embedded_svc.init(
 			'https://conecta5--dev.sandbox.my.salesforce.com',
 			'https://conecta5--dev.sandbox.my.site.com/',
@@ -83,8 +58,15 @@ trra<html>
 	        embedded_svc.postMessage("chasitor.sendMessage", payload.message);
 	    }
 	};
+
+	window.addEventListener("finishChat", functionFinishChat, false);
+	function functionFinishChat(event) {
+		console.log('finishChat');
+		embedded_svc.liveAgentAPI.clearSession();
+
+		};
 	if (!window.embedded_svc) {
-		console.log('inicializamos');
+		console.log('inicializamos2');
 		var s = document.createElement('script');
 		s.setAttribute('src', 'https://conecta5--dev.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
