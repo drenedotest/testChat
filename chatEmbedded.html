@@ -16,7 +16,32 @@ trra<html>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = false; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-
+embedded_svc.addEventHandler("onChatEndedByChasitor", function (data){
+            setTimeout(function () {
+                console.log("onChatEndedChasitor event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+                var searchBtn = document.getElementById("closeBtn");
+                if(!searchBtn){
+                    var btn = document.createElement("BUTTON");
+                    btn.id = "closeBtn";
+                    btn.innerHTML = "Close Chat";
+                    btn.className = "endChatButton postChatButton uiButton--default uiButton embeddedServiceSidebarButton";
+                    btn.addEventListener("click", function (e){
+                        e.preventDefault();
+                        console.log('Clear Session Clicked');
+                        embedded_svc.liveAgentAPI.clearSession();
+                        var chatHeader = document.getElementsByTagName('embeddedservice-chat-header');
+                        if(chatHeader && chatHeader.length > 0){
+                            var close = chatHeader[0].getElementsByClassName("closeButton");
+                            if(close && close.length > 0){
+                                close[0].click();
+                                }
+                            }
+                        });
+                var myDiv = document.getElementsByClassName('endChatContainer');
+                myDiv[0].appendChild(btn);
+                }
+                }, 1000);
+            });
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 		//embedded_svc.settings.loadingText= ''; //(Defaults to Loading)
@@ -61,32 +86,7 @@ trra<html>
 	};
 
 
-	embedded_svc.addEventHandler("onChatEndedByChasitor", function (data){
-            setTimeout(function () {
-                console.log("onChatEndedChasitor event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
-                var searchBtn = document.getElementById("closeBtn");
-                if(!searchBtn){
-                    var btn = document.createElement("BUTTON");
-                    btn.id = "closeBtn";
-                    btn.innerHTML = "Close Chat";
-                    btn.className = "endChatButton postChatButton uiButton--default uiButton embeddedServiceSidebarButton";
-                    btn.addEventListener("click", function (e){
-                        e.preventDefault();
-                        console.log('Clear Session Clicked');
-                        embedded_svc.liveAgentAPI.clearSession();
-                        var chatHeader = document.getElementsByTagName('embeddedservice-chat-header');
-                        if(chatHeader && chatHeader.length > 0){
-                            var close = chatHeader[0].getElementsByClassName("closeButton");
-                            if(close && close.length > 0){
-                                close[0].click();
-                                }
-                            }
-                        });
-                var myDiv = document.getElementsByClassName('endChatContainer');
-                myDiv[0].appendChild(btn);
-                }
-                }, 1000);
-            });
+	
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
 		s.setAttribute('src', 'https://conecta5--dev.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
