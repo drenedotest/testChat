@@ -56,6 +56,10 @@ trra<html>
 	    var payload = event.data;
 		console.log('value of payload ' + payload.message);
 		console.log('value of message cerrar ' +  payload.message.value == 'Cerrar chat');
+		console.log('value of message cerrar comillas dobles' +  payload.message.value == "Cerrar chat");
+		console.log('value of message cerrar string' +  String(payload.message.value) == 'Cerrar chat');
+		console.log('value of message cerrar string comillas dobles' +  String(payload.message.value) == "Cerrar chat");
+
 	    if(payload && payload.type === "chasitor.sendMessage") {
 	        embedded_svc.postMessage("chasitor.sendMessage", payload.message);
 	    }
