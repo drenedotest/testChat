@@ -58,8 +58,8 @@ trra<html>
 	        embedded_svc.postMessage("chasitor.sendMessage", payload.message);
 	    }else if(payload && payload.type === "chasitor.closeChat" ){
 		    console.log('Cerramos chat')
-		    embedded_svc.liveAgentAPI.clearSession();
-
+		    //embedded_svc.liveAgentAPI.clearSession();
+			embedded_svc.liveAgentAPI.endChat();
 	    }
 		    
 	};
@@ -80,7 +80,7 @@ trra<html>
 
 <script>
 	function startChat(){
-		console.log('entramos al inicio');
+		console.log('entramos al inicio MOD');
 		embedded_svc.liveAgentAPI.startChat({
 			extraPrechatFormDetails: [{"label": "Account Id",
 						   "value":"001RR000008i0BCYAY",
