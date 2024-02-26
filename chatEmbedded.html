@@ -58,8 +58,8 @@ trra<html>
 	        embedded_svc.postMessage("chasitor.sendMessage", payload.message);
 	    }else if(payload && payload.type === "chasitor.closeChat" ){
 		    console.log('Cerramos chat')
-		    //embedded_svc.liveAgentAPI.clearSession();
-			embedded_svc.liveAgentAPI.endChat();
+		    embedded_svc.liveAgentAPI.clearSession();
+			//embedded_svc.liveAgentAPI.endChat();
 	    }
 		    
 	};
