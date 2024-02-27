@@ -61,7 +61,6 @@
 
 <script>
 	function startChat(){
-		console.log('entramos al inicio MOD');
 		embedded_svc.liveAgentAPI.startChat({
 		});
 	}
