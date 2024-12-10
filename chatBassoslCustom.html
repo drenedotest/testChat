@@ -22,9 +22,9 @@
    </script>
   
   <script type='text/javascript' src='https://bassolsenergia--uat.sandbox.my.site.com/ESWChatBassols1731323406557/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-   <button id="launchChatButton" onclick="launchChat();">Click to contact support</button>
+   <button id="launchChatButton" onclick="launchChat()">Click to contact support</button>
 	<div style="position: fixed; bottom: 35px; right: 35px; cursor: pointer; color: white">
-         <div onclick="launchChat();">
+         <div onclick="launchChat()">
             <img 
                src="https://cdn-icons-png.flaticon.com/512/5962/5962463.png"
                style="border-radius: 50%; float:left; margin: 5px;"
@@ -34,7 +34,6 @@
    </div>
    <script>
 	function launchChat() {
-		setTimeout(() => {
                 embeddedservice_bootstrap.utilAPI
                     .launchChat()
                     .then(() => {
@@ -46,7 +45,7 @@
                     .finally(() => {
                         console.log("Inside Launch Chat finally Block");
                     });
-            }, 2000);
+            
 	    }
 	
    </script>
