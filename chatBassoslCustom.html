@@ -16,8 +16,8 @@
         embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
         window.addEventListener("onEmbeddedMessagingReady", () => {
                 console.log("Received the onEmbeddedMessagingReady event…");
-		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"CurrentURL" : "Cataln"});
-		console.log('setted2');
+		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"CurrentURL" : window.location.href});
+		console.log('setted3');
 	 });
 		embeddedservice_bootstrap.init(
 				'00D9X000007KvRc',
