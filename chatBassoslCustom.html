@@ -33,20 +33,21 @@
          </div>
    </div>
    <script>
-	   function launchChat(){
-		   embeddedservice_bootstrap.utilAPI
-  .launchChat()
-  .then(function (success) {
-    // Add actions to run after the chat client launches successfully.
-  })
-  .catch(function (error) {
-    // Add actions to run after the chat client launch fails.
-  })
-  .finally(function () {
-    // Add actions to run whether the chat client launches
-    // successfully or not.
-  });
-	   }
+	function launchChat() {
+		setTimeout(() => {
+                embeddedservice_bootstrap.utilAPI
+                    .launchChat()
+                    .then(() => {
+                        console.log("Inside Launch Chat");
+                    })
+                    .catch(() => {
+                        console.log("Inside Launch Chat catch Block");
+                    })
+                    .finally(() => {
+                        console.log("Inside Launch Chat finally Block");
+                    });
+            }, 2000);
+	    }
 	
    </script>
 </html>
