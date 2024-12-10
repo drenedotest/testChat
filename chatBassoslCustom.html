@@ -20,11 +20,11 @@
                 // Send data to Salesforce
                 console.log("miaw", embeddedservice_bootstrap);
                 //embeddedservice_bootstrap.utilAPI.hideChatButton();
-		
+				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"CurrentURL" : "Catalán"});
 
+console.log('setted');
 		
             });
-		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"CurrentURL" : "Catalán"});
 		embeddedservice_bootstrap.init(
 				'00D9X000007KvRc',
 				'ChatBassols',
