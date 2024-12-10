@@ -33,19 +33,15 @@
    <script>
 	function launchChat() {
 		console.log('entramos a launchChat');
-           embeddedService_bootstrap.utilAPI.launchChat().then(() => {
-                   console.log(
-                       'Successfully launched Messaging'
-                   );
-               }).catch(() => {
-                   console.log(
-                       'Some error occurred when launching Messaging'
-                   );
-               }).finally(() => {
-                   console.log(
-                       'Successfully launched Messaging - Finally'
-                   );
-               });
+           embeddedservice_bootstrap.utilAPI.launchChat()
+            .then(() => {
+                embedded_svc.addEventHandler("afterMaximize", function(data) {
+                    console.log("afterMaximize event was fired.");
+                });
+            })
+            .catch(() => {
+                // Error handling if chat fails to launch
+            });
        }
    </script>
 </html>
