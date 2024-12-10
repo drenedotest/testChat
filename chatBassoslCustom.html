@@ -15,6 +15,13 @@
 				}
 			);
 		console.log('chat inicializado');
+		window.addEventListener("onEmbeddedMessagingReady", () => {
+                console.log("Received the onEmbeddedMessagingReady event…");
+
+                // Send data to Salesforce
+                console.log("miaw", embeddedservice_bootstrap);
+                //embeddedservice_bootstrap.utilAPI.hideChatButton();
+            });
       	} catch (err) {
       		console.error('Error loading Embedded Messaging: ', err);
       	}
@@ -34,8 +41,8 @@
    </div>
    <script>
 	function launchChat() {
-                embeddedservice_bootstrap.utilAPI
-                    .launchChat()
+		embeddedservice_bootstrap.utilAPI.showChatButton();
+                embeddedservice_bootstrap.utilAPI.launchChat()
                     .then(() => {
                         console.log("Inside Launch Chat");
                     })
