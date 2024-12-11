@@ -4,7 +4,7 @@
       function initEmbeddedMessaging() {
       	try {
       	embeddedservice_bootstrap.settings.language = 'es'; // For example, enter 'en' or 'en-US'
-        embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
+        embeddedservice_bootstrap.settings.hideChatButtonOnLoad = false;
         window.addEventListener("onEmbeddedMessagingReady", () => {
                 console.log("Received the onEmbeddedMessagingReady event…");
 		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"CurrentURL" : window.location.href});
