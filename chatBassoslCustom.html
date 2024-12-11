@@ -1,14 +1,5 @@
 <html>
-	<button id="launchChatButton" onclick="launchChat()">Click to contact support</button>
-	<div style="position: fixed; bottom: 35px; right: 35px; cursor: pointer; color: white">
-         <div onclick="launchChat()">
-            <img 
-               src="https://cdn-icons-png.flaticon.com/512/5962/5962463.png"
-               style="border-radius: 50%; float:left; margin: 5px;"
-               height="50px"
-               width="50px"/>
-         </div>
-   </div>
+	
    <script type='text/javascript'>
       function initEmbeddedMessaging() {
       	try {
@@ -32,27 +23,6 @@
       		console.error('Error loading Embedded Messaging: ', err);
       	}
       };
-
-  function launchChat() {
-        embeddedservice_bootstrap.utilAPI.showChatButton();
-        embeddedservice_bootstrap.utilAPI.launchChat()
-            .then(() => {
-                // Success handler used to perform actions
-                // when the chat client launches successfully.
-                // For example, create a method that disables the launch chat button.
-                disableLaunchChatButton();
-            }).catch(() => {
-                // Error handler used to perform actions
-                // if the chat client fails to launch.
-                // For example, create a method that hides the launch chat button.
-                hideLaunchChatButton();
-            }).finally(() => {
-                // Finally handler used to perform any clean-up actions
-                // regardless of whether the chat client launches successfully or not.
-                // For example, create a method that logs the user’s attempt to chat.
-                logEndUserAttemptToChat();
-            });
-    }
    </script>
 <script type='text/javascript' src='https://bassolsenergia--uat.sandbox.my.site.com/ESWChatBassols1731323406557/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
