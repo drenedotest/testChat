@@ -5,7 +5,11 @@
 	      console.log('entramos a la funcion');
       	try {
       	embeddedservice_bootstrap.settings.language = 'es'; // For example, enter 'en' or 'en-US'
-        
+        window.addEventListener("onEmbeddedMessagingReady", () => {
+                console.log("Received the onEmbeddedMessagingReady event…");
+		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"CurrentURL" : window.location.href});
+		console.log('setted3');
+	 });
 		embeddedservice_bootstrap.init(
 				'00D9X000007KvRc',
 				'ChatBassols',
