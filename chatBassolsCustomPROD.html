@@ -1,8 +1,14 @@
+<html>
+	<body>
 <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'es'; // For example, enter 'en' or 'en-US'
-
+window.addEventListener("onEmbeddedMessagingReady", () => {
+                console.log("Received the onEmbeddedMessagingReady event…");
+		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"CurrentURL" : window.location.href});
+		console.log('setted3');
+	 });
 			embeddedservice_bootstrap.init(
 				'00D7Q0000016tDG',
 				'ChatBassols',
@@ -17,3 +23,5 @@
 	};
 </script>
 <script type='text/javascript' src='https://bassolsenergia.my.site.com/ESWChatBassols1733776959658/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+	</body>
+</html>
