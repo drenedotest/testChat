@@ -1,3 +1,26 @@
 <html>
+<body>
+  <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'es'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00D09000007vkZ6',
+				'TestAgentForce',
+				'https://vivenio.my.site.com/ESWTestAgentForce1735822593886',
+				{
+					scrt2URL: 'https://vivenio.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://vivenio.my.site.com/ESWTestAgentForce1735822593886/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+</body>
+
   
 </html>
